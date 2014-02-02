@@ -3,6 +3,7 @@ package com.michalvich.cucumber.selenium.example;
 import cucumber.annotation.en.Given;
 import cucumber.annotation.en.Then;
 import cucumber.annotation.en.When;
+import cucumber.annotation.Before;
 import cucumber.runtime.PendingException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,8 +15,11 @@ import static org.junit.Assert.assertTrue;
 
 public class GoogleSearch2Scenario {
 
-	private WebDriver driver = new HtmlUnitDriver();
-
+    protected WebDriver driver;
+    @Before
+    public void setUp() {
+        driver = new HtmlUnitDriver();
+    }
 	@Given("^the page is open \"([^\"]*)\"$")
 	public void the_page_is_open(String page) throws Throwable {
 		driver.get(page);
@@ -30,7 +34,9 @@ public class GoogleSearch2Scenario {
 
 	@Then("^a browser title should contains \"([^\"]*)\"$")
 	public void a_browser_title_should_contains(String text) throws Throwable {
-		assertTrue(driver.getTitle().contains(text));
+        System.out.println("Current title:" + driver.getTitle() );
+        assertTrue(driver.getTitle().contains(text));
+
 	}
 
 }
