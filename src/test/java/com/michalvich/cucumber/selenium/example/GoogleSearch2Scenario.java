@@ -12,7 +12,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class GoogleSearchScenario {
+public class GoogleSearch2Scenario {
 
 	private WebDriver driver = new HtmlUnitDriver();
 
