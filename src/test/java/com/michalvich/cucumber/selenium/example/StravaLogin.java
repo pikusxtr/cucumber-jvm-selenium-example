@@ -15,10 +15,13 @@ public class StravaLogin {
 
     protected WebDriver driver;
 
-    public void StravaLogin(){
-        driver =
+    @Before
+    public void setUp() {
+        driver = new HtmlUnitDriver();
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!Setup successful - Driver created!!!");
     }
-	@Given("^the page is open2 \"([^\"]*)\"$")
+
+    @Given("^the page is open2 \"([^\"]*)\"$")
 	public void the_page_is_open(String page) throws Throwable {
 		driver.get(page);
 	}
